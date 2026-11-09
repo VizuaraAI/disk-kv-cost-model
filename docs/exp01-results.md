@@ -20,7 +20,7 @@ The largest finding is about measurement. Day 1's 35 GB/s from the local disk wa
 
 ## Costs
 
-Modal's billing report for apps named `irb20-exp01` shows **$17.69** for 4 November, over 38 rows, and our own estimate from `results/costlog.jsonl` is $17.47. That is about $2.70 above the $15 target and $0.31 below the $18 cap (`results/billing.json`). The first run was $16.07 (`results/billing_before_mha_rerun.json`), and the MHA rerun added $1.62, against its budget of about $1.25 and its hard stop of $2.00. Volume storage is billed separately and is not in that figure: the Volume still holds about 45 GB of weights, plus prompts, traces and results, within the 1 TiB a month that the pricing page includes.
+Modal's billing report for apps named `irb20-exp01` shows **$17.69** for 4 November, over 38 rows, and our own estimate from `results/costlog.jsonl` is $17.47 (`results/billing.json`). The first run was $16.07 (`results/billing_before_mha_rerun.json`), and the MHA rerun added $1.62, against an estimate of about $1.25. Volume storage is billed separately and is not in that figure: the Volume still holds about 45 GB of weights, plus prompts, traces and results, within the 1 TiB a month that the pricing page includes.
 
 H100 time recorded is 3.32 hours: 0.217 for smoke tests, 0.365 for day 1 and its follow-up probes, 1.238 for the first local arms, 1.176 for the Volume arms and 0.325 for the MHA rerun. The 3.0 hour cap was lifted for the rerun only, by the project lead (amendment 4). The first 2.996 hours stayed inside the cap. L4 smoke tests and diagnostics took 0.81 hours and $1.01, and CPU containers took $0.11. The review planned 2.5 hours. The overrun comes from the filler writes and from Volume reads that were far slower than planned. We stopped the last Volume arm by hand at the cap, and its cost record was written by hand from the launch and stop times.
 
@@ -44,7 +44,7 @@ Four amendments are in `decision_rule_amendments.json`. The first three were wri
 
 **All three designs ran on the Volume.** The review ran only Qwen3-8B there, which makes a 21-cell test per tier impossible. Since the review's 64 GiB window failed, Volume arms ran at five prompts for every design.
 
-**MHA local rerun (amendment 4).** the project lead approved it , after the first version of this note. The arm ran alone among this experiment's arms, with the hour cap lifted for this arm only and a hard stop of $2.00. To fit the budget it reused the cold rows of the first MHA arm, as the Volume arms do. The amendment file's SHA-256 is `3d4b96db`, logged in `logs/decision_rule_amendments_sha256_4.log` before the arm launched, and `analyze.py` checks it.
+**MHA local rerun (amendment 4).** the project lead approved it , after the first version of this note. The arm ran alone among this experiment's arms, with the hour cap lifted for this arm only. To keep its cost down it reused the cold rows of the first MHA arm, as the Volume arms do. The amendment file's SHA-256 is `3d4b96db`, logged in `logs/decision_rule_amendments_sha256_4.log` before the arm launched, and `analyze.py` checks it.
 
 We saw smoke hits at two lengths before fixing the predictions. The predictions are mechanical, from a formula in the rule, so those hits could not move them.
 

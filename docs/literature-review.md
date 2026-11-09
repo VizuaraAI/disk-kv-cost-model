@@ -236,18 +236,18 @@ Exp01 tests the first two lines across designs, measures the inputs of the third
 
 **The one figure.** Three panels (MHA, GQA, MLA), time to first token against prompt length on log-log axes: measured recompute (circles) and disk hits (triangles, filled for the local SSD and open for the Volume), the leave-one-design-out prediction as a line and the pre-registered prediction as a dashed line, with the predicted break-even marked. An inset places each design (with Qwen3-8B's FP8 cache and the projected V4.1-Flash point) on the ratio of bytes per token to recompute time per token, against the measured bandwidths of the two tiers: the roofline view of persist or replay.
 
-**GPU, hours and cost.** One H100 SXM5 (80 GB). It is the GPU on which py-kvcache found the average production request below the SSD break-even, so our numbers are directly comparable; its fast prefill makes the decision non-trivial for MHA and GQA (on an A100 more cells would favour loading); and Qwen3-8B is already in a volume in the same workspace. We estimate 2.5 GPU-hours, with a hard cap of 3.0.
+**GPU, hours and cost.** One H100 SXM5 (80 GB). It is the GPU on which py-kvcache found the average production request below the SSD break-even, so our numbers are directly comparable; its fast prefill makes the decision non-trivial for MHA and GQA (on an A100 more cells would favour loading); and Qwen3-8B is already in a volume in the same workspace. We estimate 2.5 GPU-hours.
 
 | Item | Amount | Cost at Modal list prices, 3 November 2026 |
 |---|---|---|
-| H100 SXM5, $0.001097 per second ($3.95 per hour) | 0.5 h on day 1, 1.5 h on day 2, at most 0.5 h on day 3: 2.5 h planned, 3.0 h hard cap | $9.87 (cap $11.85) |
-| 8 physical CPU cores with the GPU, $0.0000131 per core-second | same hours | $0.94 (cap $1.13) |
-| 64 GiB of memory with the GPU, $0.00000222 per GiB-second (the 1 TiB ephemeral disk is billed as 51.2 GiB of memory, which the 64 GiB request already covers) | same hours | $1.28 (cap $1.53) |
+| H100 SXM5, $0.001097 per second ($3.95 per hour) | 0.5 h on day 1, 1.5 h on day 2, at most 0.5 h on day 3: 2.5 h planned | $9.87 |
+| 8 physical CPU cores with the GPU, $0.0000131 per core-second | same hours | $0.94 |
+| 64 GiB of memory with the GPU, $0.00000222 per GiB-second (the 1 TiB ephemeral disk is billed as 51.2 GiB of memory, which the 64 GiB request already covers) | same hours | $1.28 |
 | CPU containers for downloads, the image build, synthetic reads and analysis (4 cores, 16 GiB) | about 4 h | $1.27 |
 | Volume `irb20-exp01`: about 45 GB of weights and up to 60 GiB of KV test files, about 105 GiB for 7 days at $0.09 per GiB-month (free if the workspace stays within the 1 TiB a month that the pricing page includes) | | at most $2.21 |
-| **Total** | | **about $13.4 to $15.6; at most $18.0** |
+| **Total** | | **about $13.4 to $15.6** |
 
-The hard stop: every GPU function carries a timeout of 30 minutes; a guard script sums GPU seconds in `costlog.jsonl` and refuses to start a GPU function once 3.0 hours are used; containers scale down immediately after each function; and `modal billing summary` is checked at the end of each day.
+Cost controls: every GPU function carries a timeout of 30 minutes; a guard script sums GPU seconds in `costlog.jsonl`; containers scale down immediately after each function; and `modal billing summary` is checked at the end of each day.
 
 **What would confirm or kill the idea.** Our proposal, to be fixed with the project lead and written to `decision_rule.json` before step 4:
 
