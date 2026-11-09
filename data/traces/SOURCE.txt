@@ -1,0 +1,4 @@
+Copied without change from github.com/kvcache-ai/Mooncake at commit 3cca71daccf2a7afb8fe3f0295358f70e3a69fdb, folder FAST25-release/traces, Apache 2.0.
+Fields: timestamp in milliseconds, input_length, output_length, hash_ids (each hash is a block of 512 tokens). About one hour each.
+conversation_trace.jsonl: size 3029533, sha256 b8cbb061a85206d729d91cdc2981f43c9e0d99209dce588d3af5f7934408b9df
+toolagent_trace.jsonl: size 4415857, sha256 48a2db1a13d3bc05e6330140c64f604ba366df20d3c9e128b5c35a01c1fa5f71

@@ -1,0 +1,2 @@
+mha: lmsys/longchat-7b-v1.5-32k at revision 389eea141540fe7d2c314eacdfe980ae1415c6c0, config b = 524288 bytes per token, apache-2.0.
+gqa: Qwen/Qwen3-8B at revision b968826d9c46dd6066d109eabc6255188de91218, config b = 147456 bytes per token (73728 with FP8).

@@ -1,0 +1,241 @@
+{
+ "summary": {
+  "local": {
+   "direct_first": [
+    35.205,
+    33.819,
+    34.637
+   ],
+   "direct_reread": [
+    36.709,
+    33.038,
+    31.815
+   ],
+   "buffered_first": [
+    36.709,
+    34.36,
+    35.205
+   ],
+   "buffered_reread": [
+    35.496,
+    32.786,
+    35.791
+   ],
+   "direct_ok": true,
+   "direct_ratio_max": 1.0427212043743788,
+   "buffered_ratio_max": 1.0166453628745917,
+   "direct_honoured": true,
+   "page_cache_serving_buffered": false,
+   "after_fadvise": 38.009,
+   "fadvise_restores_cold": true,
+   "grid": {
+    "1m_qd1_direct": 6.527,
+    "1m_qd1_buffered": 8.197,
+    "1m_qd8_direct": 41.699,
+    "1m_qd8_buffered": 42.524,
+    "1m_qd32_direct": 72.796,
+    "1m_qd32_buffered": 70.409,
+    "16m_qd1_direct": 7.267,
+    "16m_qd1_buffered": 8.801,
+    "16m_qd8_direct": 37.675,
+    "16m_qd8_buffered": 37.675,
+    "16m_qd32_direct": 20.07,
+    "16m_qd32_buffered": 19.792
+   },
+   "day1_same_set_first": [
+    35.205,
+    33.819,
+    34.637
+   ],
+   "cold_first": [
+    3.142,
+    3.39,
+    3.461,
+    3.439,
+    3.387,
+    3.301
+   ],
+   "cold_reread": [
+    27.532,
+    32.786,
+    35.205,
+    36.092,
+    34.918,
+    32.786
+   ],
+   "reread_ratio_median": 10.052028703270029,
+   "cold_first_touch_us": [
+    {
+     "n": 600,
+     "p50_us": 23.3,
+     "p90_us": 4788.7
+    },
+    {
+     "n": 600,
+     "p50_us": 23.6,
+     "p90_us": 4820.7
+    },
+    {
+     "n": 600,
+     "p50_us": 22.9,
+     "p90_us": 4948.9
+    }
+   ],
+   "cold_grid": [
+    {
+     "bs": "1m",
+     "qd": 1,
+     "direct": true,
+     "GBps": 2.416
+    },
+    {
+     "bs": "1m",
+     "qd": 1,
+     "direct": false,
+     "GBps": 2.449
+    },
+    {
+     "bs": "1m",
+     "qd": 8,
+     "direct": true,
+     "GBps": 1.379
+    },
+    {
+     "bs": "1m",
+     "qd": 8,
+     "direct": false,
+     "GBps": 1.886
+    },
+    {
+     "bs": "1m",
+     "qd": 32,
+     "direct": true,
+     "GBps": 3.294
+    },
+    {
+     "bs": "1m",
+     "qd": 32,
+     "direct": false,
+     "GBps": 3.294
+    },
+    {
+     "bs": "16m",
+     "qd": 1,
+     "direct": true,
+     "GBps": 1.713
+    },
+    {
+     "bs": "16m",
+     "qd": 1,
+     "direct": false,
+     "GBps": 2.646
+    },
+    {
+     "bs": "16m",
+     "qd": 8,
+     "direct": true,
+     "GBps": 21.913
+    },
+    {
+     "bs": "16m",
+     "qd": 8,
+     "direct": false,
+     "GBps": 20.951
+    },
+    {
+     "bs": "16m",
+     "qd": 32,
+     "direct": true,
+     "GBps": 18.433
+    },
+    {
+     "bs": "16m",
+     "qd": 32,
+     "direct": false,
+     "GBps": 10.791
+    }
+   ],
+   "filler_GBps_median": 3.971,
+   "filler_s_for_1000GiB": 365.3,
+   "cold_bw_16m_qd8_GBps": 3.3885,
+   "cold_repeat_spread": 0.10152768936982803,
+   "k2_cold_p50_us": 5.1,
+   "k2_warm_p50_us": 5.1,
+   "copy_pinned_GBps": 27.65,
+   "e2e_GBps": 3.3885,
+   "written_gib": 128,
+   "write_GBps_median": 4.1419999999999995,
+   "evict_probe": {
+    "written_gib": 900,
+    "oldest_lat_p50_us": 6.4,
+    "oldest_first_GBps": [
+     2.8,
+     13.855,
+     3.6
+    ],
+    "oldest_reread_GBps": [
+     41.699,
+     36.092,
+     42.524
+    ]
+   }
+  },
+  "volume": {
+   "direct_first": [
+    23.729
+   ],
+   "direct_reread": [
+    24.129
+   ],
+   "buffered_first": [
+    26.189,
+    26.512,
+    23.861
+   ],
+   "buffered_reread": [
+    27.532,
+    29.418,
+    31.35
+   ],
+   "direct_ok": true,
+   "direct_ratio_max": 1.016857010409204,
+   "buffered_ratio_max": 1.3138594358995852,
+   "direct_honoured": true,
+   "page_cache_serving_buffered": false,
+   "after_fadvise": 27.356,
+   "fadvise_restores_cold": true,
+   "grid_same_file": {
+    "1m_qd1": 5.681,
+    "1m_qd8": 37.675,
+    "1m_qd32": 56.513,
+    "16m_qd1": 5.82,
+    "16m_qd8": 29.418,
+    "16m_qd32": 18.122
+   },
+   "same_container_first": [
+    26.189,
+    26.512,
+    23.861
+   ],
+   "fresh_first": [
+    1.27,
+    1.41,
+    1.625
+   ],
+   "fresh_reread": [
+    25.117,
+    32.293,
+    25.873
+   ],
+   "fresh_lat_first_us": 228.4,
+   "fresh_lat_after_us": 12.4,
+   "cold_bw_16m_qd8_GBps": 1.41,
+   "cold_repeat_spread": 0.27952755905511806,
+   "reread_ratio_fresh": 22.902836879432623,
+   "copy_pinned_GBps": 27.65,
+   "e2e_GBps": 1.41,
+   "write_GBps_median": 1.646,
+   "commit_s": 5.7
+  }
+ }
+}

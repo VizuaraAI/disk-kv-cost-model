@@ -1,0 +1,1 @@
+mla: deepseek-ai/DeepSeek-V2-Lite-Chat at revision 85864749cd611b4353ce1decdb286193298f64c7, config b = 31104 bytes per token, DeepSeek License Agreement.
